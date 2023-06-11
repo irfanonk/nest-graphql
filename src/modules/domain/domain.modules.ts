@@ -5,6 +5,8 @@ import { TypeOrmModule, TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { PokemonModule } from './pokemon/pokemon.module';
+import { LeagueModule } from './league/league.module';
 
 
 @Module({
@@ -14,7 +16,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
         NODE_ENV: Joi.string()
           .valid('development', 'production', 'test', 'local')
           .default('development'),
-        PORT: Joi.number().default(3000),
+        PORT: Joi.number().default(8000),
         DATABASE_URL: Joi.string().required()
       })
     }),
@@ -42,7 +44,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
         outputAs: 'class',
       },
     }),
-
+    PokemonModule, LeagueModule
   ],
   controllers: [],
   providers: [],
