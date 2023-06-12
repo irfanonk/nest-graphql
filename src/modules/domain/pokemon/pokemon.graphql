@@ -6,8 +6,11 @@ type Pokemon {
 }
 
 type Query {
-    pokemons: [Pokemon!]
-    pokemon(id: ID): Pokemon!
+    pokemons: [Pokemon]
+    pokemon(id: ID): Pokemon
+    pokemonsByType(type: String): [Pokemon]
+
+    
 }
 
 type Deleted {

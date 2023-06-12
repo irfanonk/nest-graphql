@@ -19,9 +19,11 @@ export abstract class IQuery {
 
     abstract league(id?: Nullable<string>): League | Promise<League>;
 
-    abstract pokemons(): Nullable<Pokemon[]> | Promise<Nullable<Pokemon[]>>;
+    abstract pokemons(): Nullable<Nullable<Pokemon>[]> | Promise<Nullable<Nullable<Pokemon>[]>>;
 
-    abstract pokemon(id?: Nullable<string>): Pokemon | Promise<Pokemon>;
+    abstract pokemon(id?: Nullable<string>): Nullable<Pokemon> | Promise<Nullable<Pokemon>>;
+
+    abstract pokemonsByType(type?: Nullable<string>): Nullable<Nullable<Pokemon>[]> | Promise<Nullable<Nullable<Pokemon>[]>>;
 }
 
 export abstract class IMutation {

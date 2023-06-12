@@ -26,6 +26,8 @@ export class PokemonService {
     return pokemon;
   }
 
+
+
   async update(id, data: CreatePokemonDto): Promise<PokemonEntity> {
     const pokemon = await this.pokemonRepository.findOne({ where: { id } });
     pokemon.name = data.name;
@@ -42,11 +44,18 @@ export class PokemonService {
     return pokemon;
   }
 
-  async show(id: string) {
-    return await this.pokemonRepository.findOne({ where: { id } });
+  async show(id?: string) {
+
+      return await this.pokemonRepository.findOne({ where: { id } });
   }
 
+  async showByType(type: string) {
+    return await this.pokemonRepository.find({ where: { type } });
+  }
+
+
   async getPokemons() {
+    
     return await this.pokemonRepository.find({});
   }
 }

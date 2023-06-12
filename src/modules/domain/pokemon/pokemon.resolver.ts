@@ -34,7 +34,13 @@ export class PokemonResolver {
   }
 
   @Query()
-  async pokemon(@Args('id') id: string) {
+  async pokemon(@Args('id') id) {
     return await this.pokemonService.show(id);
   }
+
+  @Query()
+  async pokemonsByType(@Args('type') type) {
+    return await this.pokemonService.showByType(type);
+  }
+  
 }

@@ -28,7 +28,7 @@ export class LeagueResolver {
   }
 
   @Query()
-  async pokemon(@Args('id') id: string) {
+  async league(@Args('id') id: string) {
     return await this.leagueService.show(id);
   }
 }
